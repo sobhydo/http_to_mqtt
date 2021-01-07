@@ -43,13 +43,13 @@ class MqttHandler {
       try {
         msg = JSON.parse(message);
         
-        console.log(msg.StatusSNS.DS18B20.Temperature, msg.StatusSNS.AM2301.Temperature, msg.StatusSNS.AM2301.Humidity);
+        console.log(msg.DS18B20.Temperature, msg.AM2301.Temperature, msg.AM2301.Humidity);
         axios.post('https://smartreader.jadara.work/api/update',
           {
             "apiKey": "i1IVhlnJDo",
-            "sensor1": msg.StatusSNS.DS18B20.Temperature,
-            "sensor2": msg.StatusSNS.AM2301.Temperature,
-            "sensor3": msg.StatusSNS.AM2301.Humidity,
+            "sensor1": msg.DS18B20.Temperature,
+            "sensor2": msg.AM2301.Temperature,
+            "sensor3": msg.AM2301.Humidity,
           })
           .then(function (response) {
             console.log(response.data);
@@ -57,7 +57,8 @@ class MqttHandler {
           .catch(function (error) {
             console.log(error);
           });
-      } catch {
+      } catch (error){
+        console.log(error);
         // msg = message.toString();
       }
       
