@@ -31,7 +31,8 @@ class MqttHandler {
     });
 
     // mqtt subscriptions
-    this.mqttClient.subscribe('/stat/xChip-C83F59/STATUS10');///cmnd/xChip-C83F59/status10
+    this.mqttClient.subscribe('/tele/xChip-C83F59/SENSOR');///cmnd/xChip-C83F59/status10
+    // this.mqttClient.subscribe('/stat/xChip-C83F59/STATUS10');///cmnd/xChip-C83F59/status10
     // this.mqttClient.subscribe('stat/xChip-C83F59/STATUS10');///cmnd/xChip-C83F59/status10
     // this.mqttClient.subscribe('/cmnd/xChip-C83F59/status10', {qos: 0});
 
